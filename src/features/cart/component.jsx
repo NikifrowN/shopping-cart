@@ -7,7 +7,7 @@ export const Cart = ({cart, setCart}) => {
          {cart.map((item) => (
             <CartItem 
                key={item.id}
-               item={item}
+               cartItem={item}
                cart={cart}
                setCart={setCart}
             />

@@ -17,21 +17,35 @@ export const Form = ({cart, setCart}) => {
       setProductPrice(e.target.value);
    }
 
+   const uniqId = (arr, elem) => {
+      const ids = arr.map(item => item.id);
+      return !ids.includes(elem);
+   }
+
    const submitProductHandler = (e) => {
       e.preventDefault();
 
-      setCart([
-         ...cart,
-         {
-            id: productId,
-            name: productName,
-            price: productPrice,
+      if (productId && productName && productPrice) {
+         if (uniqId(cart, productId)) {
+            setCart([
+               ...cart,
+               {
+                  id: productId,
+                  name: productName,
+                  price: productPrice,
+               }
+            ]);
+   
+            setProductId('');
+            setProductName('');
+            setProductPrice('');
+         } else {
+            alert('This ID already exists!')
          }
-      ]);
-
-      setProductId('');
-      setProductName('');
-      setProductPrice('');
+         
+      } else {
+         alert('You have to fill in all form fields to add item to Cart!');
+      }
    };
 
    return(

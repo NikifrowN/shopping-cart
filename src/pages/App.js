@@ -6,7 +6,7 @@ import './App.css';
 function App() {
 
   const [cart, setCart] = useState([]);
-  console.log(cart)
+  //console.log(cart)
   return (
     <div className="App">
       <header>
