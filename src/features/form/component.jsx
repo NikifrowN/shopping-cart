@@ -52,6 +52,7 @@ export const Form = ({cart, setCart}) => {
       <form>
          <input 
             type="number"
+            min={0}
             placeholder='Enter product Id'
             value={productId}
             onChange={idInputHandler}
@@ -64,6 +65,7 @@ export const Form = ({cart, setCart}) => {
          />
          <input 
             type="number" 
+            min={0}
             placeholder='Enter product Price'
             value={productPrice}
             onChange={priceInputHandler}
