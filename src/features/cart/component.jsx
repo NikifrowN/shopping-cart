@@ -1,8 +1,19 @@
+import { CartItem } from "../cart-item/component"
+
 export const Cart = ({cart, setCart}) => {
 
-   return(
+   return cart.length? (
       <div>
-         cart
+         {cart.map((item) => (
+            <CartItem 
+               key={item.id}
+               item={item}
+               cart={cart}
+               setCart={setCart}
+            />
+         ))}
       </div>
+   ) : (
+      <p>Shopping cart is empty</p>
    )
 }
