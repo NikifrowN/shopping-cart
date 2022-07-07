@@ -29,9 +29,7 @@ ul li {
 }
 
 :root {
-  --background: #0D1117;
-  --headerBackground: #161B22;
-  --mainTextColor: #8B949E;
+  --darkTextColor: #000000;
   --lightTextColor: #ffffff;
 }   
 
@@ -54,13 +52,23 @@ code {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-  background-image: linear-gradient(120deg, #00597c, #01ccaa);
+  background-image: linear-gradient(120deg, #001e2a, #231846);
   color: var(--lightTextColor);
 }
 
 .wrapper{
-  width: 1200px;
+  width: 900px;
   box-sizing: content-box;
   margin: 0 auto;
   flex: 1 1 auto;
+}
+
+.control-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.control-panel p {
+  font-size: 2rem;
 }
