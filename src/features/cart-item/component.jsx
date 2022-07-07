@@ -6,13 +6,13 @@ export const CartItem = ({cartItem, cart, setCart}) => {
 
    return(
       <div>
-         <p>{cartItem.id}</p>
-         <p>{cartItem.name}</p>
-         <p>{cartItem.price}</p>
+         <p>id: {cartItem.id}</p>
+         <p>name: {cartItem.name}</p>
+         <p>price: {cartItem.price}</p>
          <button
             onClick={deleteHandler}
          >
-            Delete {cartItem.name} from cart
+            Delete item from cart
          </button>
       </div>
    )
