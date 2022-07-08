@@ -29,31 +29,34 @@ export const Form = ({cart, setCart}) => {
    const submitProductHandler = (e) => {
       e.preventDefault();
 
-      // Валидация в 2 этапа. Первый - на пустые поля, второй - на уникальный id.
-      if (productId && productName && productPrice) {
-         if (uniqId(cart, productId)) {
-            // Добавляем объект нового товара в корзину.
-            setCart([
-               ...cart,
-               {
-                  id: productId,
-                  name: productName,
-                  price: productPrice,
-               }
-            ]);
-            
-            // Очистка инпутов после сабмита.
-            setProductId('');
-            setProductName('');
-            setProductPrice('');
-         } else {
-            // Для простоты сделал алерты. Можно сделать попапы.
-            alert('This ID already exists!')
-         }
-         
-      } else {
+      if (!productId || !productName || !productPrice) {
          alert('You have to fill in all form fields to add item to Cart!');
+         return;
       }
+
+      if (productPrice <= 0 || productId <= 0) {
+         alert('You can`t use negative numbers or zeros!');
+         return;
+      }
+
+      if (!uniqId(cart, productId)) {
+         alert('This ID already exists!');
+         return;
+      }
+
+      setCart([
+         ...cart,
+         {
+            id: productId,
+            name: productName,
+            price: productPrice,
+         }
+      ]);
+      
+      // Очистка инпутов после сабмита.
+      setProductId('');
+      setProductName('');
+      setProductPrice('');
    };
 
    return(

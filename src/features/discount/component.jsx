@@ -13,7 +13,11 @@ export const Discount = ({setDiscount}) => {
    const submitDiscount = (e) => {
       e.preventDefault();
 
-      setDiscount(discountInput);
+      if(discountInput >= 0 && discountInput <=100) {
+         setDiscount(discountInput);
+      } else {
+         alert('Set Discount between 0 and 100');
+      }
    }
 
    const deleteDiscount = (e) => {

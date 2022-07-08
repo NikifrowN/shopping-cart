@@ -14,9 +14,10 @@ export const Stats = ({cart, discount}) => {
    return(
       <div className={styles.root}>
          <p>You have {cart.length} item(s) in your cart.</p>
-         {discount === 0 ? (<p>Total price is {totalPrice} rub.</p>) : (
-            <p>Total price is <span>{totalPrice}</span> {discountPrice} rub.</p>
+         {discount > 0 ? (<p>Total price is <span>{totalPrice}</span> {discountPrice.toFixed(2)} rub.</p>) : (
+            <p>Total price is {totalPrice} rub.</p>
          )}
       </div>
    )
 }
+

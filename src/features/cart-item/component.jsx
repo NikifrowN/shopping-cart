@@ -14,8 +14,8 @@ export const CartItem = ({cartItem, cart, setCart, discount}) => {
       <div className={styles.root}>
          <p>Product Id: {cartItem.id}</p>
          <p>Product name: {cartItem.name}</p>
-         {discount === 0 ? (<p>Price: {cartItem.price}</p>) : (
-            <p>Price: <span>{cartItem.price}</span> {discountPrice}</p>
+         {discount > 0 ? (<p>Price: <span>{cartItem.price}</span> {discountPrice.toFixed(2)}</p>) : (
+            <p>Price: {cartItem.price}</p>
          )} 
          <button
             onClick={deleteHandler}
